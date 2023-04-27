@@ -7,6 +7,7 @@
   sync = "!git pull origin $(git mainbranch) --rebase"
   squash = "!git rebase -v -i $(git mainbranch) --autosquash"
   publish = push origin HEAD --force-with-lease
+  deploy = push origin main:production
 
 [core]
   editor = nvim
