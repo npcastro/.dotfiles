@@ -137,6 +137,10 @@ prompt pure
 # rbenv
 eval "$(rbenv init -)"
 
+# rails
+# https://github.com/rails/rails/issues/38560
+export DISABLE_SPRING=true
+
 # pyenv
 eval "$(pyenv init -)"
 
