@@ -134,6 +134,8 @@ prompt pure
 # export VISUAL=nvim
 # export HIGHLIGHT_STYLE=base16/gruvbox-dark-medium
 
+export PATH="$PATH:$HOME/.local/scripts"
+
 # rbenv
 eval "$(rbenv init -)"
 

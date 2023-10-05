@@ -1,4 +1,4 @@
-STOW_FOLDERS="git,karabiner,nvim,tmux,zsh"
+STOW_FOLDERS="bin,git,karabiner,nvim,tmux,zsh"
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
