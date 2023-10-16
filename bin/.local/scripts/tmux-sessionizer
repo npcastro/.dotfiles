@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 if [[ $# -eq 1 ]]; then
   selected=$1
@@ -13,13 +13,20 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selected
+if [[ -z $tmux_running ]]; then
+  if ! tmuxinator list | grep -q $selected_name; then
+    tmuxinator n $selected_name
+  fi
+  tmuxinator s $selected_name
   exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-  tmux new-session -ds $selected_name -c $selected
+  if ! tmuxinator list | grep -q $selected_name; then
+    tmuxinator n $selected_name
+  fi
+  tmuxinator s $selected_name
+  exit 0
 fi
 
 if [[ -z $TMUX ]]
