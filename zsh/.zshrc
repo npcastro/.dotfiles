@@ -126,7 +126,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Pure
-# fpath+=("$(brew --prefix)/share/zsh/site-functions")
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -134,6 +134,11 @@ prompt pure
 # export VISUAL=nvim
 # export HIGHLIGHT_STYLE=base16/gruvbox-dark-medium
 
+# tmuxinator
+# https://github.com/tmuxinator/tmuxinator/issues/841
+unset -v GEM_HOME
+
+# personal scripts
 export PATH="$PATH:$HOME/.local/scripts"
 
 # rbenv
