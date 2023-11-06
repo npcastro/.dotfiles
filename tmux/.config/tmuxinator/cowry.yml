@@ -1,0 +1,17 @@
+# /Users/npcastro/.config/tmuxinator/cowry.yml
+
+name: cowry
+root: ~/workspace/fintoc/cowry
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+      layout: even-horizontal
+      panes:
+        - webserver:
+          - make start-webserver
+        - worker:
+          - sleep 40
+          - make start-worker

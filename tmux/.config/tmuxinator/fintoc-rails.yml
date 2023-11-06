@@ -1,0 +1,16 @@
+# /Users/npcastro/.config/tmuxinator/fintoc-rails.yml
+
+name: fintoc-rails
+root: ~/workspace/fintoc/fintoc-rails
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+      layout: even-vertical
+      panes:
+        - webserver:
+          - doppler run -- rails s
+        - sidekiq:
+          - drbe -- sidekiq

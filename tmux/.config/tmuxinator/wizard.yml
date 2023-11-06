@@ -1,0 +1,18 @@
+# /Users/npcastro/.config/tmuxinator/cowry.yml
+
+name: wizard
+root: ~/workspace/fintoc/wizard
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+      layout: even-horizontal
+      panes:
+        - script:
+          - drnr -- script:build
+          - drnr -- script:serve
+        - widget:
+          - drnr -- wizard:build
+          - drnr -- wizard:serve

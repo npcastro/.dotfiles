@@ -1,0 +1,9 @@
+# /Users/npcastro/.config/tmuxinator/_dotfiles.yml
+
+name: _dotfiles
+root: ~/.dotfiles
+
+windows:
+  - editor:
+      panes:
+        - nvim
