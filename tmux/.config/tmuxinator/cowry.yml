@@ -15,3 +15,4 @@ windows:
         - worker:
           - sleep 40
           - make start-worker
+  - terminal:

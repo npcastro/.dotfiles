@@ -16,3 +16,4 @@ windows:
         - widget:
           - drnr -- wizard:build
           - drnr -- wizard:serve
+  - terminal:

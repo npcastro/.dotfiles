@@ -13,4 +13,5 @@ windows:
         - webserver:
           - doppler run -- rails s
         - sidekiq:
-          - drbe -- sidekiq
+          - drbe -- sidekiq -C config/sidekiq/_dev.yml
+  - terminal:
