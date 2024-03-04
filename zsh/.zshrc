@@ -148,6 +148,10 @@ eval "$(rbenv init -)"
 # https://github.com/rails/rails/issues/38560
 export DISABLE_SPRING=true
 
+# puppeteer
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
 # pyenv
 eval "$(pyenv init -)"
 
