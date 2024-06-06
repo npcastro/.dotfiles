@@ -17,3 +17,6 @@ windows:
           - drnr -- wizard:build
           - drnr -- wizard:serve
   - terminal:
+  - lazygit:
+      panes:
+        - lazygit

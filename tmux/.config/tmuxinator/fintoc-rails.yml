@@ -15,3 +15,6 @@ windows:
         - sidekiq:
           - drbe -- sidekiq -C config/sidekiq/_dev.yml
   - terminal:
+  - lazygit:
+      panes:
+        - lazygit

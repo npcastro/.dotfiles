@@ -16,3 +16,6 @@ windows:
           - sleep 40
           - make start-worker
   - terminal:
+  - lazygit:
+      panes:
+        - lazygit
