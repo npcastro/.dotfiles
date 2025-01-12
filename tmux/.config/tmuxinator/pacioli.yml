@@ -1,0 +1,18 @@
+# /Users/npcastro/.config/tmuxinator/fintoc-rails.yml
+
+name: pacioli
+root: ~/workspace/fintoc/pacioli
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+      panes:
+        - webserver:
+          - doppler run -- rails s -p 3001
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+
