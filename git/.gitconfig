@@ -1,7 +1,3 @@
-[user]
-	name = Nicolás Pablo Castro Leal
-  email = npcastrol@gmail.com
-
 [alias]
   mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
   sync = "!git pull origin $(git mainbranch) --rebase"
@@ -12,12 +8,29 @@
 [core]
   editor = nvim
 
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+
 [init]
   defaultBranch = main
 
 [pull]
-  rebase = false
+  rebase = true
 
 [push]
-  default = upstream
+  default = simple
+  autoSetupRemote = true
 
+[rerere]
+  enabled = true
+  autoupdate = true
+
+[tag]
+  sort = version:refname
+
+[user]
+  name = Nicolás Pablo Castro Leal
+  email = npcastrol@gmail.com
