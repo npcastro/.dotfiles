@@ -148,6 +148,11 @@ eval "$(rbenv init -)"
 # https://github.com/rails/rails/issues/38560
 export DISABLE_SPRING=true
 
+# rails + postgres. segfault al correr tapioca
+# https://github.com/Shopify/tapioca/issues/1555
+# https://github.com/ged/ruby-pg/issues/311#issuecomment-1581764507
+export PGGSSENCMODE="disable"
+
 # puppeteer
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
