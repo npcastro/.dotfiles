@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(doppler run -- bundle exec rspec:*)",
+      "Bash(bundle exec rubocop:*)"
+    ]
+  },
+  "alwaysThinkingEnabled": false
+}
