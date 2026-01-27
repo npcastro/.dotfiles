@@ -1,0 +1,12 @@
+# /Users/nicolascastro/.config/tmuxinator/ERDs.yml
+
+name: ERDs
+root: ~/workspace/fintoc/ERDs
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - claude:
+      panes:
+        - claude
