@@ -9,10 +9,8 @@ fi
 BRANCH_NAME="$1"
 TMUX_KEY="$2"
 
-# Get the current directory name
-# cambiar esto para que funcione desde cualquier worktree y no solo desde
-# main. Hay que obtener el nombre del repo ocupando git worktree list
-DIR_NAME=$(basename "$PWD")
+# Get the base repo name
+REPO_NAME=$(basename "$(dirname "$(git rev-parse --git-common-dir)")")
 
 # Create the worktree in a directory
 mkdir "../${BRANCH_NAME}"
@@ -22,5 +20,5 @@ git worktree add "../${BRANCH_NAME}"
 tmux bind "${TMUX_KEY}" switch-client -t "${BRANCH_NAME}"
 
 # start tmuxinator session
-tmuxinator start "${DIR_NAME}" -n "${BRANCH_NAME}" worktree="${BRANCH_NAME}"
+tmuxinator start "${REPO_NAME}" -n "${BRANCH_NAME}" worktree="${BRANCH_NAME}"
 
