@@ -1,0 +1,14 @@
+# /Users/nicolascastro/.config/tmuxinator/dashboard.yml
+
+name: dashboard
+root: ~/workspace/fintoc/dashboard
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server: drnr -- dev
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit

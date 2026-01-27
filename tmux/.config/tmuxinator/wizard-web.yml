@@ -1,0 +1,22 @@
+# /Users/nicolascastro/.config/tmuxinator/wizard-web.yml
+
+name: wizard-web
+root: ~/workspace/fintoc/wizard-web
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+      layout: even-horizontal
+      panes:
+        - script:
+          - cd script
+          - drnr -- dev
+        - widget:
+          - cd web
+          - drnr -- dev
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit

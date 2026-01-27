@@ -1,0 +1,9 @@
+# /Users/nicolascastro/.config/tmuxinator/workspace.yml
+
+name: workspace
+root: ~/
+
+windows:
+  - editor:
+      panes:
+        - nvim ~/Desktop/daily.txt
