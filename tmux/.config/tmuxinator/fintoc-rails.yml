@@ -1,7 +1,9 @@
 # /Users/npcastro/.config/tmuxinator/fintoc-rails.yml
 
 name: fintoc-rails
-root: ~/workspace/fintoc/fintoc-rails
+root: ~/workspace/fintoc/<%= @settings["worktree"] || 'fintoc-rails' %>
+
+on_project_start: doppler setup -c dev --no-interactive
 
 windows:
   - editor:
@@ -18,3 +20,6 @@ windows:
   - lazygit:
       panes:
         - lazygit
+  - claude:
+      panes:
+        - claude

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Check if parameters are provided
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: claude-session <branch-name> <tmux-key>"
+    exit 1
+fi
+
+BRANCH_NAME="$1"
+TMUX_KEY="$2"
+
+# Get the current directory name
+# cambiar esto para que funcione desde cualquier worktree y no solo desde
+# main. Hay que obtener el nombre del repo ocupando git worktree list
+DIR_NAME=$(basename "$PWD")
+
+# Create the worktree in a directory
+mkdir "../${BRANCH_NAME}"
+git worktree add "../${BRANCH_NAME}"
+
+# Bind the new tmuxinator session to the provided key
+tmux bind "${TMUX_KEY}" switch-client -t "${BRANCH_NAME}"
+
+# start tmuxinator session
+tmuxinator start "${DIR_NAME}" -n "${BRANCH_NAME}" worktree="${BRANCH_NAME}"
+
