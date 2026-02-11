@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: destroy-session <branch-name>"
+    exit 1
+fi
+
+BRANCH_NAME="$1"
+
+# Get the key bound to this session
+KEY=$(tmux list-keys | grep "$BRANCH_NAME" | awk '{print $4}')
+
+# Kill the tmux session
+tmux kill-session -t "${BRANCH_NAME}" 2>/dev/null && echo "Killed tmux session: ${BRANCH_NAME}" || echo "No tmux session found: ${BRANCH_NAME}"
+
+# Unbind the key if it exists
+if [ -n "$KEY" ]; then
+    tmux unbind "$KEY"
+    echo "Unbound key: ${KEY}"
+else
+    echo "No key binding found for: ${BRANCH_NAME}"
+fi
+
+# Remove the git worktree
+git worktree remove "../${BRANCH_NAME}" --force 2>/dev/null && echo "Removed worktree: ${BRANCH_NAME}" || echo "No worktree found: ${BRANCH_NAME}"
+
+# Prune worktrees
+git worktree prune
+echo "Pruned worktrees"
+
+# Remove the directory if it still exists
+# if [ -d "../${BRANCH_NAME}" ]; then
+#     rm -rf "../${BRANCH_NAME}"
+#     echo "Removed directory: ../${BRANCH_NAME}"
+# fi
+
+echo "Cleanup complete!"
