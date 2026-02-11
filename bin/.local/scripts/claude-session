@@ -10,7 +10,7 @@ BRANCH_NAME="$1"
 TMUX_KEY="$2"
 
 # Get the base repo name
-REPO_NAME=$(basename "$(dirname "$(git rev-parse --git-common-dir)")")
+REPO_NAME=$(basename -s .git $(git config --get remote.origin.url))
 
 # Create the worktree in a directory
 mkdir "../${BRANCH_NAME}"
