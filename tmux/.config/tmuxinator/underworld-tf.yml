@@ -1,0 +1,19 @@
+# /Users/nicolascastro/.config/tmuxinator/underworld-tf.yml
+
+name: underworld-tf
+root: ~/workspace/fintoc/<%= @settings["worktree"] || 'underworld-tf' %>
+
+on_project_start: doppler setup -c dev --no-interactive
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        - claude
