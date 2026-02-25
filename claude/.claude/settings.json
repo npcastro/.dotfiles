@@ -2,8 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(doppler run -- bundle exec rspec:*)",
-      "Bash(bundle exec rubocop:*)"
+      "Bash(bundle exec rubocop:*)",
+      "Bash(bundle exec srb tc *)",
+      "Bash(doppler run -- bundle exec rubocop*)",
+      "Bash(make test-file*)",
+      "Bash(make rubocop*)",
+      "Bash(make sorbet*)",
+      "Bash(make tapioca-dsl-model*)",
+      "Bash(make db-migrate*)"
     ]
   },
-  "alwaysThinkingEnabled": false
+  "model": "opus"
 }

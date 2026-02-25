@@ -8,6 +8,10 @@
 - When writing texts other than code (commits, PRs, docs) BE BRIEF. Only write what's necessary
 - When working with ruby please remember to add an empty line at the end of the files.
 - After your code is done and tests are passing add a step of fixing any linter issues
+- When possible, try to order parameters alphabetically. The same applies for arrays or hashes with no relevant order.
+
+## Architecture (Applies to Ruby on Rails projects)
+**Engines**: Engines should not access AR models in other engines. Engines should expose public services that return immutable value objects.
 
 ## Working with Git
 

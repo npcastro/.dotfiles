@@ -1,6 +1,8 @@
+claude/.claude/backups
 claude/.claude/cache
 claude/.claude/debug
 claude/.claude/file-history
+claude/.claude/paste-cache
 claude/.claude/plans
 claude/.claude/plugins
 claude/.claude/projects
