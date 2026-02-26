@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: claude-container-session <branch-name> [tmux-key]"
+    exit 1
+fi
+
+BRANCH_NAME="$1"
+TMUX_KEY="$2"
+CONTAINER_NAME="claude-${BRANCH_NAME}"
+
+# Get the base repo name
+REPO_NAME=$(basename -s .git "$(git config --get remote.origin.url)")
+
+# Create the worktree
+mkdir "../${BRANCH_NAME}"
+git worktree add "../${BRANCH_NAME}"
+
+WORKTREE_PATH=$(cd "../${BRANCH_NAME}" && pwd)
+REPO_GIT_DIR=$(git rev-parse --absolute-git-dir)
+
+# Start the container
+docker run -d -it \
+    --name "${CONTAINER_NAME}" \
+    --cap-add NET_ADMIN \
+    -v "${WORKTREE_PATH}:/home/agent/workspace" \
+    -v "${REPO_GIT_DIR}:${REPO_GIT_DIR}" \
+    -v /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock \
+    -e GIT_USER_NAME="$(git config user.name)" \
+    -e GIT_USER_EMAIL="$(git config user.email)" \
+    llm-sandbox:latest
+
+echo "Started container: ${CONTAINER_NAME}"
+
+if [ -n "${TMUX_KEY}" ]; then
+  # Bind the new tmuxinator session to the provided key
+  tmux bind "${TMUX_KEY}" switch-client -t "${BRANCH_NAME}"
+fi
+
+# Start tmuxinator session with container setting
+tmuxinator start "${REPO_NAME}" -n "${BRANCH_NAME}" worktree="${BRANCH_NAME}" container="${CONTAINER_NAME}"
