@@ -1,0 +1,17 @@
+# /Users/nicolascastro/.config/tmuxinator/alexandria.yml
+
+name: alexandria
+root: ~/workspace/fintoc/alexandria
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        - claude

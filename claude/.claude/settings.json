@@ -12,5 +12,33 @@
       "Bash(make db-migrate*)"
     ]
   },
-  "model": "opus"
+  "model": "opus[1m]",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/nicolascastro/.claude/hooks/rtk-rewrite.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "fintoc-docs@fin-claude-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "fin-claude-plugins": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/fintoc-com/fin-claude-plugins.git"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true
 }

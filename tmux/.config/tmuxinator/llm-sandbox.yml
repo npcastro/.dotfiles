@@ -1,0 +1,17 @@
+# /Users/nicolascastro/.config/tmuxinator/llm-sandbox.yml
+
+name: llm-sandbox
+root: ~/workspace/personal/llm-sandbox
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        - claude

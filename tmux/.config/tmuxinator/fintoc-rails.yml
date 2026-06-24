@@ -22,4 +22,6 @@ windows:
         - lazygit
   - claude:
       panes:
-        - <%= @settings["container"] ? "docker exec -it #{@settings["container"]} claude --dangerously-skip-permissions" : "claude" %>
+        claude
+        # - <%= @settings["container"] ? "docker exec -it -u agent #{@settings["container"]} claude --dangerously-skip-permissions" : "claude" %>
+        # - <%= @settings["container"] ? "docker exec -it -u agent #{@settings["container"]} pi" : "pi" %>

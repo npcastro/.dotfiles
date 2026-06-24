@@ -1,0 +1,17 @@
+# /Users/nicolascastro/.config/tmuxinator/dra-polo.yml
+
+name: dra-polo
+root: ~/workspace/fintoc/dra-polo
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        - <%= @settings["container"] ? "docker exec -it -u agent #{@settings["container"]} claude --dangerously-skip-permissions" : "claude" %>

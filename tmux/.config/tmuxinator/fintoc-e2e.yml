@@ -1,0 +1,14 @@
+# /Users/nicolascastro/.config/tmuxinator/fintoc-e2e.yml
+
+name: fintoc-e2e
+root: ~/workspace/fintoc/fintoc-e2e
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit

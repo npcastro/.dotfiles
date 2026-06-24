@@ -1,0 +1,16 @@
+# /Users/nicolascastro/.config/tmuxinator/fintoc-node.yml
+
+name: fintoc-node
+root: ~/workspace/fintoc/fintoc-node
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        - claude

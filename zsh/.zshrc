@@ -110,12 +110,6 @@ fi
 # export XDG_CONFIG_HOME="~/.nvim_legacy"
 
 # GCloud
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/nicolascastro/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nicolascastro/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/nicolascastro/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nicolascastro/google-cloud-sdk/completion.zsh.inc'; fi
-
 # GO
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -163,3 +157,16 @@ eval "$(pyenv init -)"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "/Users/nicolascastro/.bun/_bun" ] && source "/Users/nicolascastro/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/nicolascastro/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nicolascastro/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/nicolascastro/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nicolascastro/google-cloud-sdk/completion.zsh.inc'; fi

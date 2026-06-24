@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Check if parameters are provided
-if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "Usage: claude-session <branch-name> <tmux-key>"
+if [ -z "$1" ]; then
+    echo "Usage: claude-session <branch-name> [tmux-key]"
     exit 1
 fi
 
@@ -16,8 +16,10 @@ REPO_NAME=$(basename -s .git $(git config --get remote.origin.url))
 mkdir "../${BRANCH_NAME}"
 git worktree add "../${BRANCH_NAME}"
 
-# Bind the new tmuxinator session to the provided key
-tmux bind "${TMUX_KEY}" switch-client -t "${BRANCH_NAME}"
+if [ -n "${TMUX_KEY}" ]; then
+  # Bind the new tmuxinator session to the provided key
+  tmux bind "${TMUX_KEY}" switch-client -t "${BRANCH_NAME}"
+fi
 
 # start tmuxinator session
 tmuxinator start "${REPO_NAME}" -n "${BRANCH_NAME}" worktree="${BRANCH_NAME}"

@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(doppler run -- bundle exec rspec:*)",
+      "Bash(bundle exec rubocop:*)",
+      "Bash(bundle exec srb tc *)",
+      "Bash(doppler run -- bundle exec rubocop*)",
+      "Bash(make test-file*)",
+      "Bash(make rubocop*)",
+      "Bash(make sorbet*)",
+      "Bash(make tapioca-dsl-model*)",
+      "Bash(make db-migrate*)"
+    ]
+  },
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true
+  },
+  "skipDangerousModePermissionPrompt": true
+}
