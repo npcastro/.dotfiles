@@ -1,0 +1,17 @@
+# /Users/nicolascastro/.config/tmuxinator/fintoc-actual-sync.yml
+
+name: fintoc-actual-sync
+root: ~/workspace/personal/fintoc-actual-sync
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        - claude

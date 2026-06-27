@@ -1,0 +1,20 @@
+# /Users/npcastro/.config/tmuxinator/payment-links-app.yml
+
+name: payment-links-app
+root: ~/workspace/fintoc/<%= @settings["worktree"] || 'payment-links-app' %>
+
+on_project_start: doppler setup -c dev --no-interactive
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - server:
+      layout: even-vertical
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        claude

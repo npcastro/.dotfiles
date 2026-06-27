@@ -1,0 +1,16 @@
+# /Users/nicolascastro/.config/tmuxinator/fintoc-python.yml
+
+name: fintoc-python
+root: ~/workspace/fintoc/fintoc-python
+
+windows:
+  - editor:
+      panes:
+        - nvim
+  - terminal:
+  - lazygit:
+      panes:
+        - lazygit
+  - claude:
+      panes:
+        - claude
