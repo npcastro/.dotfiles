@@ -15,11 +15,11 @@ windows:
         - webserver:
           - doppler run -- rails s
         - sidekiq:
-          - drbe -- sidekiq -C config/sidekiq/_dev.yml
+          - echo "drbe -- sidekiq -C config/sidekiq/_dev.yml"
   - terminal:
   - lazygit:
       panes:
         - lazygit
-  - claude:
+  - opencode:
       panes:
-        claude
+        opencode2

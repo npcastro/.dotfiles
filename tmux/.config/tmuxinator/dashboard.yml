@@ -1,7 +1,11 @@
 # /Users/nicolascastro/.config/tmuxinator/dashboard.yml
 
 name: dashboard
-root: ~/workspace/fintoc/dashboard
+root: ~/workspace/fintoc/<%= @settings["worktree"] || 'dashboard' %>
+
+on_project_start:
+  - doppler setup -c dev --no-interactive
+  - nvm use && doppler run npm i
 
 windows:
   - editor:
@@ -12,3 +16,6 @@ windows:
   - lazygit:
       panes:
         - lazygit
+  - opencode:
+      panes:
+        opencode2

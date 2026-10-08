@@ -1,7 +1,7 @@
 # /Users/nicolascastro/.config/tmuxinator/wizard-web.yml
 
 name: wizard-web
-root: ~/workspace/fintoc/wizard-web
+root: ~/workspace/fintoc/<%= @settings["worktree"] || 'wizard-web' %>
 
 windows:
   - editor:
@@ -20,3 +20,6 @@ windows:
   - lazygit:
       panes:
         - lazygit
+  - opencode:
+      panes:
+        opencode2
