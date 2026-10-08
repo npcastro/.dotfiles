@@ -163,3 +163,7 @@ eval "$(pyenv init -)"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by flyctl installer
+export FLYCTL_INSTALL="/Users/nicolascastro/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
